@@ -56,6 +56,14 @@
                     <div class="card-body">
                         <h3 class="card-title fw-bold"><?php echo $product->name ?></h3>
                         <h5 class="card-title">Marca: <?php echo $product->brand ?></h5>
+                        <?php if(property_exists($product, 'ingredients')) : ?>
+                            <h5 class="card-title mb-4">ingredienti:</h5>
+                            <ul class="d-flex">
+                            <?php foreach($product->ingredients as $ingredient ) :?>
+                                <li class="me-4"><?php echo $ingredient ?></li>
+                        <?php endforeach;?>
+                        </ul>
+                        <?php endif;?>
                         <h6 class="card-title">Categoria: <?php echo $product->category->GetCategoryIcon() ?></h6>
                         <h6 class="card-title">Tipo: <?php echo get_class($product)?></h6>
                         <span class="card-title">ID: <?php echo get_class($product)?><?php echo $product->id?></span>
