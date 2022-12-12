@@ -23,8 +23,9 @@
     // var_dump($Food);
     // var_dump($toy);
     // var_dump($Collare);
-    //foreach($products as $product)
-    var_dump($products);
+    // foreach($products as $product);
+    // var_dump(get_class($product) );
+
 
 ?>
 
@@ -55,7 +56,7 @@
                         <h5 class="card-title"><?php echo $product->name ?></h5>
                         <h5 class="card-title">Marca: <?php echo $product->brand ?></h5>
                         <h6 class="card-title">Categoria: <?php echo $product->category->icon ?></h6>
-                        <h6 class="card-title">Tipo: </h6>
+                        <h6 class="card-title">Tipo: <?php echo get_class($product)?></h6>
                     </div>
                 </div>
             </div>
