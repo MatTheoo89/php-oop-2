@@ -8,7 +8,7 @@
 class category{
 
     public $name;
-    public $icon;
+    private $icon;
 
     public function __construct($_name)
     {
@@ -19,10 +19,13 @@ class category{
     public function SetIcon()
     {
         if($this->name == 'dog'){
-
             return $this->icon = '<i class="fa-solid fa-dog"></i>';
         } elseif($this->name == 'cat'){
             return $this->icon = '<i class="fa-solid fa-cat"></i>';
         }
+    }
+
+    public function GetCategoryIcon(){
+        return $this->icon;
     }
 }
