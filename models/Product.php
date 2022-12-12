@@ -10,7 +10,7 @@ class Product{
     public $is_avaible = true;
     public $image;
 
-    public function __construct($_id, $_name, $_brand, $_category, $_price, $_image)
+    public function __construct($_id, $_name, $_brand, Category $_category, $_price, $_image)
     {
         $this->id = $_id;
         $this->name = $_name;
