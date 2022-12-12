@@ -10,17 +10,18 @@ class category{
     public $name;
     public $icon;
 
-    public function __construct($_name, $_icon)
+    public function __construct($_name)
     {
         $this->name = $_name;
-        $this->SetIcon($_icon);
+        $this->SetIcon();
     }
 
-    public function SetIcon($_icon)
+    public function SetIcon()
     {
-        if($this->$_icon = 'dog'){
+        if($this->name == 'dog'){
+
             return $this->icon = '<i class="fa-solid fa-dog"></i>';
-        } elseif($this->$_icon = 'cat'){
+        } elseif($this->name == 'cat'){
             return $this->icon = '<i class="fa-solid fa-cat"></i>';
         }
     }

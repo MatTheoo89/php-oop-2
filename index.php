@@ -8,14 +8,23 @@
 
     // TEST Inserimento PRODOTTO CIBO
 
-    $Food = new Food(1, 'Osso', 'Mio brand', new category('cane', 'cat'), 10, 'https://animalmania.it/vendita/3456-large_default/chew-it-small-osso-curativo-cane.jpg', 80, ['ingr1', 'ingr2', 'ingr3'],'gusto osso');
+    $Food = new Food(1, 'Osso', 'Mio brand', new category('dog'), 10, 'https://animalmania.it/vendita/3456-large_default/chew-it-small-osso-curativo-cane.jpg', 80, ['ingr1', 'ingr2', 'ingr3'],'gusto osso');
 
     // TEST Inserimento PRODOTTO GIOCO
+    
+    $toy = new Toy(1, 'Ciambella', 'TINGERIA', new category('cat'), 12, 'https://m.media-amazon.com/images/I/71PXlW+ZGKL._AC_SL1200_.jpg', 50, 'small');
+    
+    // TEST Inserimento PRODOTTO ACCESSORI
+    $Collare = new Accessory(1, 'Collare', 'Wolfone', new category('dog'), 15, 'https://m.media-amazon.com/images/I/61GvWH-TV4L._AC_SL1500_.jpg', 'Cuoio', 'Middle');
 
-    $toy = new Toy(1, 'Ciambella', 'TINGERIA', new category('cane', 'cat'), 12, 'https://m.media-amazon.com/images/I/71PXlW+ZGKL._AC_SL1200_.jpg', 50, 'small');
+    $products = [$Food, $toy , $Collare];
 
-    var_dump($Food);
-    var_dump($toy);
+
+    // var_dump($Food);
+    // var_dump($toy);
+    // var_dump($Collare);
+    //foreach($products as $product)
+    var_dump($products);
 
 ?>
 
@@ -30,12 +39,28 @@
     <title>Animals Store</title>
     <style>
         body{
-            background-color: #333;
-            color: #fff;
+            background-color: #111;
+            color: #39f;
         }
     </style>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="row">
+            <?php foreach($products as $product) : ?>
+            <div class="col-4">
+                <div class="card p-2">
+                    <img src="<?php echo $product->image ?>" class="card-img-top" alt="<?php echo $product->name ?>">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $product->name ?></h5>
+                        <h5 class="card-title">Marca: <?php echo $product->brand ?></h5>
+                        <h6 class="card-title">Categoria: <?php echo $product->category->icon ?></h6>
+                        <h6 class="card-title">Tipo: </h6>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
 </body>
 </html>
